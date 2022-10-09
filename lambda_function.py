@@ -30,7 +30,7 @@ async def handler(event, context):
 
     # ./brick_face/output/result에 생상된 이미지 외부 반출
     s3.meta.client.upload_file(
-        '/tmp/result.jpg', '42brickoutputimg', 'result.txt')
+        '/tmp/result.jpg', '42brickoutputimg', 'result.jpg')
 
     return {
         'statusCode': 200,
