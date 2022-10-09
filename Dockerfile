@@ -7,11 +7,15 @@ RUN /var/lang/bin/python3.8 -m pip install --upgrade pip
 # install git 
 RUN yum install git -y
 
+# install git lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+RUN sudo apt install git-lfs
+
 # git clone
 RUN git clone https://github.com/42brick/lambda_and_ecr.git
+RUN git lfs pull
 
 # install packages
-RUN pip install opencv-python==4.6.0.66
 RUN pip install -r lambda_and_ecr/requirements.txt
 
 # git repository 의 lambda_function.py 를 Container 내부의 /var/task/ 로 이동
