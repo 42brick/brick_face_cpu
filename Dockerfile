@@ -8,8 +8,10 @@ RUN /var/lang/bin/python3.8 -m pip install --upgrade pip
 RUN yum install git -y
 
 # install git lfs
-# RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-RUN yum install git-lfs
+RUN yum install -y sudo
+RUN yum install -y curl
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+RUN sudo yum install git-lfs
 
 # git clone
 RUN git clone https://github.com/42brick/lambda_and_ecr.git
