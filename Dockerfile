@@ -11,6 +11,7 @@ RUN yum install git -y
 RUN git clone https://github.com/42brick/lambda_and_ecr.git
 
 # install packages
+RUN pip install opencv-python==4.6.0.66
 RUN pip install -r lambda_and_ecr/requirements.txt
 
 # git repository 의 lambda_function.py 를 Container 내부의 /var/task/ 로 이동
