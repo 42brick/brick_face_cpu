@@ -42,7 +42,7 @@ async def run_model(col_start, col_end, r=5, test_mode=False, num_steps=1000, se
     if col_start < r:
         r = col_start-1
         print("RANGE가 자동으로 조정됩니다.")
-    test_num = 3
+    test_num = 5
 
     if test_mode == True:
         for i in range(col_start, col_end):

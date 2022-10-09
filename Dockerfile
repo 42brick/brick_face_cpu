@@ -18,4 +18,4 @@ RUN cp lambda_and_ecr/lambda_function.py /var/task/
 RUN cp -r brick_face/ /var/task/
 
 # lambda_function.handler 실행
-CMD ["lambda_function.handler"
+CMD ["lambda_function.handler"]
