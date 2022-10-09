@@ -4,10 +4,10 @@ import json
 import boto3
 import cv2
 
-from brick_face.run_func import run_model
+from lambda_and_ecr.brick_face.run_func import run_model
 
-result_path = './brick_face/ouput/result'
-save_file = './brick_face/test_images/test2.jpg'
+result_path = '/var/task/lambda_and_ecr/brick_face/ouput/result'
+save_file = '/var/task/lambda_and_ecr/brick_face/test_images/test2.jpg'
 
 s3 = boto3.resource('s3')
 
