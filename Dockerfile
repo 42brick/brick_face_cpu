@@ -7,13 +7,14 @@ RUN /var/lang/bin/python3.8 -m pip install --upgrade pip
 
 # install git 
 RUN yum install git -y
-RUN yum install ffmpeg libsm6 libxext6 -y
+RUN yum install mesa-libGL -y
 
 # git clone
 RUN git clone https://github.com/42brick/lambda_and_ecr.git
 
 # install packages
 # RUN pip install -r lambda_and_ecr/requirements.txt
+# RUN pip install imageio-ffmpeg==0.4.3 pyspng==0.1.0
 RUN pip install absl-py==1.2.0
 RUN pip install aiohttp==3.8.3
 RUN pip install aiosignal==1.2.0
