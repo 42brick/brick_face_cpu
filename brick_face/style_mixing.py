@@ -34,7 +34,7 @@ def generate_style_mix(
     image_dict = {}
     for i in range(len(w_dict)) :
         projected_w = w_dict[f'Image{i+1}']
-        synth_image = G.synthesis(projected_w.unsqueeze(0), noise_mode=noise_mode)
+        synth_image = G.synthesis(projected_w.unsqueeze(0), noise_mode=noise_mode, force_fp32=True)
         synth_image = (synth_image + 1) * (255 / 2)
         synth_image = synth_image.permute(0, 2, 3, 1).clamp(0, 255).to(torch.uint8)[0].cpu().numpy()
 
@@ -52,7 +52,7 @@ def generate_style_mix(
         row_w = w_dict[f"Image{num1}"].clone()
         row_w[col_start:col_end] = w_dict[f"Image{num2}"][col_start:col_end]
 
-        synth_image = G.synthesis(row_w.unsqueeze(0), noise_mode=noise_mode)
+        synth_image = G.synthesis(row_w.unsqueeze(0), noise_mode=noise_mode, force_fp32=True)
         synth_image = (synth_image + 1) * (255 / 2)
         synth_image = synth_image.permute(0, 2, 3, 1).clamp(0, 255).to(torch.uint8)[0].cpu().numpy()
 

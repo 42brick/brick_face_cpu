@@ -16,7 +16,7 @@ async def run_model(col_start, col_end, r=5, test_mode=False, num_steps=1000, se
 
     # Load networks.
     print('Loading networks from "%s"...' % network_pkl)
-    device = torch.device('cuda')
+    device = torch.device('cpu')
 
     with dnnlib.util.open_url(network_pkl) as fp:
         G = legacy.load_network_pkl(fp)['G_ema'].requires_grad_(

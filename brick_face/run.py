@@ -21,7 +21,7 @@ if __name__ == "__main__":
                         default=False, required=False)
     parser.add_argument('--num_steps', type=int, default=1000, required=False)
     parser.add_argument('--save_video', '-s', type=bool,
-                        default=True, required=True)
+                        default=False, required=False)
 
     args = parser.parse_args()
     now = datetime.now()
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     # Load networks.
     print('Loading networks from "%s"...' % network_pkl)
-    device = torch.device('cuda')
+    device = torch.device('cpu')
 
     with dnnlib.util.open_url(network_pkl) as fp:
         G = legacy.load_network_pkl(fp)['G_ema'].requires_grad_(
