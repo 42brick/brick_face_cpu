@@ -1,5 +1,4 @@
 import os
-from os import getcwd
 import shutil
 
 from fastapi import FastAPI, UploadFile
@@ -19,8 +18,8 @@ def root():
 @app.post('/ai')
 async def run_ai(file: UploadFile):
 
-    if os.path.exists("./brick_face/ouput/result"):
-        shutil.rmtree("./brick_face/ouput/result")
+    if os.path.exists("./ouput/result"):
+        shutil.rmtree("./ouput/result")
 
     res = await upload_file(file)
     if res == False:
@@ -30,4 +29,4 @@ async def run_ai(file: UploadFile):
 
     await run_model(4,	8)
 
-    return FileResponse(path=getcwd() + "/brick_face/ouput/generate1.png")
+    return FileResponse(path="./ouput/generate1.png")

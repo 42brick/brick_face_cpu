@@ -16,7 +16,7 @@ if __name__ == "__main__":
     parser.add_argument('--range', type=int, default=5, required=False)
     parser.add_argument('--seed', type=int, default=2022, required=False)
     parser.add_argument('--network', '-n', type=str,
-                        default='../model/network-snapshot-001000.pkl', required=False)
+                        default='../model/network-snapshot-005000.pkl', required=False)
     parser.add_argument('--test_mode', type=bool,
                         default=False, required=False)
     parser.add_argument('--num_steps', type=int, default=1000, required=False)
