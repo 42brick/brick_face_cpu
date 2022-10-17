@@ -21,12 +21,7 @@ async def run_ai(file: UploadFile):
     if os.path.exists("./ouput/result"):
         shutil.rmtree("./ouput/result")
 
-    res = await upload_file(file)
-    if res == False:
-        return {
-            'status': 400
-        }
-
+    await upload_file(file)
     await run_model(4,	8)
 
-    return FileResponse(path="./ouput/generate1.png")
+    return FileResponse(path="./ouput/test4~8.png")
