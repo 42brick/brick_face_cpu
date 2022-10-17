@@ -24,4 +24,4 @@ async def run_ai(file: UploadFile):
     await upload_file(file)
     await run_model(4,	8)
 
-    return FileResponse(path="./output/test4~8.png")
+    return FileResponse(path="./output/result/test4~8.png")
