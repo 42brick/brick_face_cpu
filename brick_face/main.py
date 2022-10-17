@@ -18,10 +18,10 @@ def root():
 @app.post('/ai')
 async def run_ai(file: UploadFile):
 
-    if os.path.exists("./ouput/result"):
-        shutil.rmtree("./ouput/result")
+    if os.path.exists("./output/result"):
+        shutil.rmtree("./output/result")
 
     await upload_file(file)
     await run_model(4,	8)
 
-    return FileResponse(path="./ouput/test4~8.png")
+    return FileResponse(path="./output/test4~8.png")
